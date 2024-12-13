@@ -16,13 +16,18 @@ import Sidebar  from './sidebar.vue';
 <style lang='scss' scoped>
 .wrapper{
   display: flex;
-  .sidebar{
-    width:200px;
-    min-height: 100vh;
+    height: 100vh;
+    .sidebar{
+    width:220px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: visible
   }
   .main{
     flex:1;
-    padding:10px
+    padding:10px;
+    // height:100%;
+    overflow: auto;
   }
 }
 </style>

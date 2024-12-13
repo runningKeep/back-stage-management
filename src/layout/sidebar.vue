@@ -15,5 +15,7 @@
 </template>
 
 <style lang='scss' scoped>
-
+.el-menu-vertical-demo{
+  height:100vh
+}
 </style>

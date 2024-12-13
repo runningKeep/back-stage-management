@@ -56,6 +56,21 @@ const router = createRouter({
           name: 'websocket',
           component: () => import('../views/Websocket.vue')
         },
+        {
+          path: '/virtuallist',
+          name: 'VirtualList',
+          component: () => import('../views/VirtualList.vue')
+        },
+        {
+          path: '/virtuallist2',
+          name: 'VirtualList2',
+          component: () => import('../views/VirtualList2.vue')
+        },
+        {
+          path: '/lazyloadimg',
+          name: 'LazyLoadImg',
+          component: () => import('../views/LazyLoadImg.vue')
+        },
       ]
     },
   ]

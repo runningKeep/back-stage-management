@@ -6,6 +6,15 @@
   <title>Document</title>
 </head>
 <body>
+  <script defer>
+    document.addEventListener('DOMContentLoaded',()=>{
+      console.log('cc')
+      let dom = document.querySelector('.a')
+      console.log(dom,'dom')
+    })
+    
+  
+  </script>
   <div class="a">
     <div class="b">
       <div class="span">aaa</div>
@@ -16,27 +25,35 @@
   <svg>
     <circle class="p" cx="50%" cy="50%" r="40" fill="none"></circle>
   </svg>
-  <script>
-    let socket = new WebSocket("ws://localhost:4000")
-    socket.onmessage=function(m){
-      console.log('get message'+m.data);
-    }
-    socket.onopen=function(){
-      console.log('connect');
-      socket.send('kkk')
-    }
-    let socket2 = new WebSocket("ws://localhost:4000")
-    socket2.onmessage=function(m){
-      console.log('get message'+m.data);
-    }
-    socket2.onopen=function(){
-      console.log('connect22');
-      socket.send('kkk22')
-    }
-
-  </script>
+  <div class="box-wrapper">
+    <div class="box">
+      <div class="content">box</div>
+    </div>
+    <span>ff</span>
+  </div>
+  <div :style="{height:200px}">boxsdsffas</div>
+  <div class="box2"></div>ff
 </body>
 <style>
+  .box2{
+    width:100px;
+    height:100px;
+    background-color: blueviolet;
+    transition: all 1s;
+    animation: aa .8s forwards ease-in;
+    animation-iteration-count:1
+  }
+  @keyframes aa{
+    20%{
+      transform: scale(1.2);
+    }
+    /* 55%{
+      transform: scale(0.2);
+    } */
+    100%{
+      transform: scale(0);
+    }
+  }
   .p{
     stroke:red;
     stroke-dasharray: 70;
@@ -52,6 +69,39 @@
     height: 200px;
     overflow: scroll;
     border: 1px solid;
+    transition: all 1s;
+  }
+  .box-wrapper{
+    display: flex;
+    /* align-items: center;
+    justify-content: center;
+    margin-bottom: 100px; */
+  }
+  .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+    height: inherit;
+    transition: all 1s;
+    background-color: transparent;
+  }
+  .content:hover{
+    rotate: -90deg;
+  }
+  .box{
+    width:100px;
+    height:100px;
+    transition: all 1s;
+    background-color: aqua;
+    color:brown;
+    font-size:16px
+  }
+  .box:hover{
+    /* font-size: 30px; */
+    width: 120px;
+    height: 120px;
+    rotate: 90deg;
   }
   .b{
     height: 800px;

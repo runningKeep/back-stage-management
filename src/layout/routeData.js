@@ -44,4 +44,19 @@ export default [
     menuName:'websocket',
     path:'/websocket'
   },
+  {
+    id:10,
+    menuName:'virtuallist',
+    path:'/virtuallist'
+  },
+  {
+    id:12,
+    menuName:'virtuallist2',
+    path:'/virtuallist2'
+  },
+  {
+    id:11,
+    menuName:'lazyloadimg',
+    path:'/lazyloadimg'
+  },
 ]
