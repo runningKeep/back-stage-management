@@ -63,10 +63,14 @@ onMounted(()=>{
   console.log(fileInput.files);
   let files = fileInput.files[0]
   console.log(files.size);
-  let fileBlob = sliceFile(files,1024*10)
+  let fileBlob = sliceFile(files,1024*1024*100)
   console.log(fileBlob,'--')
   // sendFile(fileBlob,files)
+  let start = new Date().getTime()
   const {allHash,chunkList} = await hash(fileBlob)
+  let endtime = new Date().getTime()
+  let time = (endtime-start)/1000
+  console.log(time,'time/s')
   console.log(allHash,'hashCode');
   console.log(chunkList,'chunkList');
 })

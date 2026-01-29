@@ -1,18 +1,18 @@
 <script setup>
- import {ref,reactive,onMounted} from 'vue'
- import Mock from 'mockjs'
- import { throttle,deBounce } from '@/utils';
- let url = new URL('./mock-worker.js',import.meta.url).href
- console.log(url,'url');
- const worker = new Worker(url,{type:'module'})
- worker.onmessage = (e)=>{
-  loading.value = false
-  console.log(e.data,'--')
-  data.value = e.data.array
-  virtualInit()
- }
- const data = ref([])
- let loading = ref(true)
+import {ref,reactive,onMounted} from 'vue'
+import Mock from 'mockjs'
+import { throttle,deBounce } from '@/utils';
+let url = new URL('./mock-worker.js',import.meta.url).href
+console.log(url,'url');
+const worker = new Worker(url,{type:'module'})
+worker.onmessage = (e)=>{
+loading.value = false
+console.log(e.data,'--')
+data.value = e.data.array
+virtualInit()
+}
+const data = ref([])
+let loading = ref(true)
 const cardsData = ref([])
 const buffer = 3
 const virtualInit = ()=>{
@@ -26,8 +26,7 @@ const virtualInit = ()=>{
   cardsData.value = initData
 
   const handleScroll = (e)=>{
-  let cards = document.querySelector('.cards-wrapper')
-  console.log('scroll')
+    let cards = document.querySelector('.cards-wrapper')
     let scrollTop = cards.scrollTop
     let imCount = Math.floor(scrollTop/50)
     if(imCount!==count){
@@ -36,9 +35,7 @@ const virtualInit = ()=>{
       let actualBuffer = imCount-buffer>0?buffer:imCount
       dd.style.transform=`translateY(${scrollTop-amend-actualBuffer*50}px)`
       let im = Math.max(0,imCount-buffer)
-      // im = imCount
       let end = Math.min(imCount+6+buffer,data.value.length)
-      console.log(im,end,'--')
       let newData = data.value.slice(im,end)
       cardsData.value = newData
       count = imCount

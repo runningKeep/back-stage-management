@@ -55,8 +55,33 @@ export default [
     path:'/virtuallist2'
   },
   {
-    id:11,
+    id:13,
     menuName:'lazyloadimg',
     path:'/lazyloadimg'
+  },
+  {
+    id:14,
+    menuName:'iframe',
+    path:'/iframe'
+  },
+  {
+    id:15,
+    menuName:'hook',
+    path:'/hook'
+  },
+  {
+    id:15,
+    menuName:'video',
+    path:'/video'
+  },
+  {
+    id:16,
+    menuName:'chat',
+    path:'/chat'
+  },
+  {
+    id:17,
+    menuName:'test',
+    path:'/test'
   },
 ]

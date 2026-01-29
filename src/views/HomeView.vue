@@ -2,8 +2,9 @@
 import { onBeforeRouteLeave } from "vue-router";
 import HelloWorld from '../components/HelloWorld.vue'
 import card from '../components/card.vue'
-import { effectScope, ref } from "vue";
+import { effectScope, ref,reactive } from "vue";
 import useMouse from "@/hooks/useMouse";
+import useCount from '@/hooks/useCount'
 onBeforeRouteLeave(()=>{
   console.log('live,home');
 })
@@ -13,23 +14,54 @@ scope.run(()=>{
   const {x,y} = useMouse
 })
 const {x,y,count} = useMouse
+const aa = {a:1,b:2}
+    // for(let i of aa){
+    //     console.log(i,'ii')
+    // }
+    for(let i in aa){
+        console.log(i,'in')
+    }
+
+class route{
+  constructor(routes){
+    this.routes = routes
+  }
+
+  init(){
+    window.addEventListener('popstate',(path)=>{
+      this.loadRoute(path)
+    })
+  }
+  nav(){
+    window.history.pushState()
+    this.loadRoute(path)
+  }
+  loadRoute(){
+
+  }
+}
+const obj = reactive({person:{name:'xiaoming'},age:18})
+const {person,age} = obj
+// const counter = useCount(999,2000)
 </script>
 
 <template>
    <el-button @click="show = !show">toggle show</el-button>
-   <!-- <HelloWorld /> -->
-   <!-- <div class="view_port">
-      <div class="polling_message">Listening for dispatches</div>
-      <div class="cylon_eye"></div>
-    </div> -->
-    <div>{{ `${x},${y}` }}</div>
+   <el-button @click="person.name+='-'">changeName</el-button>
+   <div class="btn-wrapper">
+    <el-button @click.prevent.self="age++">changeName</el-button>
+   </div>
+    <!-- <div>{{ `${x},${y}` }}</div> -->
     <div>{{ count }}</div>
     <div class="box3">
-      <!-- <div class="box2"><div class="box">
-</div></div> -->
     </div>
     
   <main>
+  <div>{{ person.name }}</div>
+  <div>{{ obj.person.name }}</div>
+  <div>{{ age }}</div>
+  <div>{{ obj.age }}</div>
+  <!-- <div>{{ counter }}</div> -->
     <keep-alive>
       <card v-if="show" />
     </keep-alive>
@@ -105,5 +137,9 @@ backdrop-filter: blur(28px);
     transform: scale(2);
   }
 }
-
+.btn-wrapper{
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+}
 </style>

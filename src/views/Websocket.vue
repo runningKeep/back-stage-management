@@ -37,7 +37,6 @@ const mList = ref([])
 <div ref="bottom" class="bottom"></div>
 </div>
 </template>
-
 <style lang='scss' scoped>
 .a{
   height:500px

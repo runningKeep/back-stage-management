@@ -71,6 +71,31 @@ const router = createRouter({
           name: 'LazyLoadImg',
           component: () => import('../views/LazyLoadImg.vue')
         },
+        {
+          path: '/iframe',
+          name: 'Iframe',
+          component: () => import('../views/Iframe.vue')
+        },
+        {
+          path: '/hook',
+          name: 'Hook',
+          component: () => import('../views/Hook.vue')
+        },
+        {
+          path: '/video',
+          name: 'video',
+          component: () => import('../views/Video.vue')
+        },
+        {
+          path: '/chat',
+          name: 'Chat',
+          component: () => import('../views/Chat.vue')
+        },
+        {
+          path: '/test',
+          name: 'Test',
+          component: () => import('../views/Test.vue')
+        },
       ]
     },
   ]
